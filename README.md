@@ -1,10 +1,10 @@
 # clojure-tic-tac-toe
 
-FIXME: description
+The game of Tic Tac Toe written in Clojure
 
 ## Installation
 
-Download from http://example.com/FIXME.
+
 
 ## Usage
 
