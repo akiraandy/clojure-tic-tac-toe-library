@@ -18,6 +18,3 @@
           (convert-to-string (nth board 6)) " | "
           (convert-to-string (nth board 7)) " | "
           (convert-to-string (nth board 8))))
-
-
-
