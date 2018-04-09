@@ -1,4 +1,4 @@
-# clojure-tic-tac-toe
+# clojure-tic-tac-toe [![Build Status](https://travis-ci.org/akiraandy/clojure-tic-tac-toe.svg?branch=master)](https://travis-ci.org/akiraandy/clojure-tic-tac-toe)
 
 The game of Tic Tac Toe written in Clojure
 
