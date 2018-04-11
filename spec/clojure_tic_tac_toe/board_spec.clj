@@ -42,7 +42,7 @@
                   0 1 2
                   3 :x 5
                   6 7 8
-                 ] (fill-board empty-board 4 :x))))
+                 ] (fill-board 4 empty-board :x))))
     (describe "full?"
       (it "returns true if the board is full"
         (should= true (full? full-board)))

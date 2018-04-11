@@ -9,7 +9,7 @@
 (defn available-spaces [board] 
   (filter #(is-empty? %) board))
 
-(defn fill-board [board index marker]
+(defn fill-board [index board marker]
   (assoc board index marker))
 
 (defn full? [board]
