@@ -10,5 +10,5 @@
 
 (defn -main
   [& args]
-  (console-ui/print-message(messages/display-board(game-loop empty-board))))
+  (play-game empty-board))
 

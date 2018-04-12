@@ -7,8 +7,21 @@
    0 :x 2
    3 4 5
    6 7 8
-  ]
-)
+  ])
+
+(def board-with-winner
+  [
+   :x :x :x
+   3 4 5
+   6 7 8
+  ])
+
+(def tie-board
+  [
+   :o :o :x
+   :x :x :o
+   :o :o :x
+   ])
 
 (describe "Messages"
   (describe "convert-cell-to-string"
@@ -22,4 +35,9 @@
       (should= "X's turn to play! Please select an available space" (turn-prompt :x))))
   (describe "invalid-input"
     (it "informs the user of invalid input"
-      (should= "Invalid input detected, please input a number from 0-8" (invalid-input)))))
+      (should= "Invalid input detected, please input a number from 0-8" (invalid-input))))
+  (describe "end-game"
+    (it "tell who won if there is a winner"
+      (should= "X won! Congratulations!" (end-game board-with-winner)))
+    (it "inform the users of a tie"
+      (should= "Game over! It's a tie!" (end-game tie-board)))))
