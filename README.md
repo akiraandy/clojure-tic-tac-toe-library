@@ -4,33 +4,18 @@ The game of Tic Tac Toe written in Clojure
 
 ## Installation
 
+Make sure you have lein installed.
+To run:
 
+```
+cd ~/clojure-tic-tac-toe
+lein run
+```
 
-## Usage
+## Test
 
-FIXME: explanation
-
-    $ java -jar clojure-tic-tac-toe-0.1.0-standalone.jar [args]
-
-## Options
-
-FIXME: listing of options this app accepts.
-
-## Examples
-
-...
-
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
-
-## License
-
-Copyright © 2018 FIXME
-
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+Run the test suite:
+```
+cd ~/clojure-tic-tac-toe
+lein spec
+```
