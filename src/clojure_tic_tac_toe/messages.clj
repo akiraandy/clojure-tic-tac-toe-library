@@ -1,5 +1,6 @@
 (ns clojure-tic-tac-toe.messages
-  (:require [clojure.string :as string])) 
+  (:require [clojure.string :as string]
+            [clojure-tic-tac-toe.rules :as rules])) 
 
 (defn convert-to-string [cell]
   (if (number? cell)
@@ -26,3 +27,8 @@
 (defn invalid-input []
   "Invalid input detected, please input a number from 0-8"
   )
+
+(defn end-game [board]
+  (if (rules/winner? board)
+    (str (convert-to-string(rules/get-winner board)) " won! Congratulations!")
+    (str "Game over! It's a tie!")))
