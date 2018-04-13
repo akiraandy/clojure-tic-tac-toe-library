@@ -16,5 +16,6 @@
 
 (defn play-game [board]
   (let [end-state (game-loop board)]
+    (print (str (char 27) "[2J"))
     (console/print-message(messages/display-board end-state))
     (console/print-message(messages/end-game end-state))))
