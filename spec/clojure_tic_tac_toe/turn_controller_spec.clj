@@ -23,4 +23,9 @@
     (it "should return X if available spaces are odd"
         (should= :x (current-player empty-board)))
     (it "should return O if available spaces are even"
-        (should= :o (current-player board)))))
+        (should= :o (current-player board))))
+  (describe "opponent-player"
+    (it "should return O if available spaces are odd"
+        (should= :o (opponent-player empty-board)))
+    (it "should return X if available spaces are even"
+        (should= :x (opponent-player board)))))

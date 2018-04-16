@@ -3,6 +3,7 @@
             [clojure-tic-tac-toe.board :as board]
             [clojure-tic-tac-toe.messages :as messages]
             [clojure-tic-tac-toe.human :as human]
+            [clojure-tic-tac-toe.computer :as computer]
             [clojure-tic-tac-toe.game-runner :refer :all]))
 
 (def empty-board 

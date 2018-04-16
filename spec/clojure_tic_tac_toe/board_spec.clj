@@ -47,4 +47,14 @@
       (it "returns true if the board is full"
         (should= true (full? full-board)))
       (it "returns false if the board is not full"
-        (should= false (full? empty-board)))))
+        (should= false (full? empty-board))))
+    (describe "empty?"
+      (it "returns true if the board is empty"
+        (should= true (board-empty? empty-board)))
+      (it "returns false if the board is not empty"
+        (should= false (board-empty? not-empty-board))))
+    (describe "middle-available?"
+      (it "returns true if middle is available"
+        (should= true (middle-available? empty-board)))
+      (it "returns false if middle is unavailable"
+        (should= false (middle-available? full-board)))))
