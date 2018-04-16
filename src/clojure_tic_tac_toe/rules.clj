@@ -13,21 +13,18 @@
    (hash-set (get board 2) (get board 4) (get board 6))
    ])
 
-(defn- win-on-any? [board]
-  (some #(= 1 (count %)) (combos board)))
-
 (defn winner? [board]
-  (if(win-on-any? board)
-    true
-    false))
+  (not-every?
+    #(not (= 1 (count %))) (combos board)))
 
 (defn tie? [board]
- (and (board/full? board) (not(winner? board))))
+ (and (board/full? board) (not (winner? board))))
 
 (defn get-winner [board]
-  (let [winner (filter (fn [win-combos] (= 1 (count win-combos))) (combos board))]
-    (if (not(empty? winner))
-      (get (first winner) :x :o))))
+  (let [winner (first (first (sort-by count (combos board))))]
+    (if (not (number? winner))
+      winner)))
 
 (defn game-over? [board]
-  (or(winner? board)(tie? board)))
+  (or
+    (winner? board) (tie? board)))
