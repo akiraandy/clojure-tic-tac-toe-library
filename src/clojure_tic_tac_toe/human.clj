@@ -16,7 +16,7 @@
    (recur(invalid-move input) board)))
 
 (defn- select-space[board current-player]
-  (print (str (char 27) "[2J"))
+  (console/print-message(messages/clear-screen))
   (console/print-message(messages/display-board board))
   (console/print-message(messages/turn-prompt current-player))
   (->

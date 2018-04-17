@@ -32,3 +32,7 @@
   (if (rules/winner? board)
     (str (convert-to-string(rules/get-winner board)) " won! Congratulations!")
     (str "Game over! It's a tie!")))
+
+(defn clear-screen []
+  (do (print(str (char 27) "[2J"))
+  (str (char 27) "[2J")))

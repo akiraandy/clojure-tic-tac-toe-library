@@ -7,18 +7,40 @@
             [clojure-tic-tac-toe.player :as player]
             [clojure-tic-tac-toe.turn-controller :as turn-contr]))
 
-(defn turn [gameboard]
-  (if (odd?(count(board/available-spaces gameboard)))
-    (player/play-turn {:player-type :human :board gameboard :current-player (turn-contr/current-player gameboard)})
-    (player/play-turn {:player-type :computer :board gameboard :current-player (turn-contr/current-player gameboard) :opponent-player (turn-contr/opponent-player gameboard)})))
+(defn switch-player-type [player-type] 
+  (if (= player-type :human)
+    :computer
+    :human
+  ))
 
-(defn game-loop [board]
+(defn turn [gameboard player-type]
+  (player/play-turn {:player-type player-type :board gameboard :current-player (turn-contr/current-player gameboard)}))
+
+(defn game-loop-hvh [board player-type]
   (if (rules/game-over? board)
     board
-  (recur (turn board))))
+  (recur (turn board :human) :human)))
 
-(defn play-game [board]
-  (let [end-state (game-loop board)]
-    (print (str (char 27) "[2J"))
+(defn game-loop-hvc [board player-type]
+  (if (rules/game-over? board)
+    board
+  (let [new-player-type (switch-player-type player-type)]
+    (recur (turn board player-type) new-player-type))))
+
+(defmulti play-game (fn [game-params] (:game-type game-params))) 
+
+(defmethod play-game :hvc [params]
+  (let [end-state (game-loop-hvc (:board params) :human)]
+    (console/print-message(messages/clear-screen))
     (console/print-message(messages/display-board end-state))
     (console/print-message(messages/end-game end-state))))
+
+(defmethod play-game :hvh [params]
+  (let [end-state (game-loop-hvh (:board params) :human)]
+    (console/print-message(messages/clear-screen))
+    (console/print-message(messages/display-board end-state))
+    (console/print-message(messages/end-game end-state))))
+
+(defmethod play-game :default [params] 
+  (throw (IllegalArgumentException.
+           (str "There is no game type of " (:game-type params) ". " "Valid game types: -t hvh, -t hvc"))))
