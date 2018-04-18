@@ -7,9 +7,10 @@ The game of Tic Tac Toe written in Clojure
 Make sure you have lein installed.
 To run:
 
+Pass ```-t``` or ```--type``` flag followed by game type either ```hvh``` for Human V. Human game or ```hvc``` for Human V. Computer game. 
 ```
 cd ~/clojure-tic-tac-toe
-lein run
+lein run --type hvc
 ```
 
 ## Test
