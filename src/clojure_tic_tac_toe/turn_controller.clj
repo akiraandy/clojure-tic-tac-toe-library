@@ -5,3 +5,8 @@
   (if(odd? (count (board/available-spaces board)))
     :x
     :o))
+
+(defn opponent-player [board]
+  (if(odd? (count (board/available-spaces board)))
+    :o
+    :x))

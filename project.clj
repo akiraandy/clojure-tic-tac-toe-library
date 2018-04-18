@@ -3,9 +3,11 @@
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :resource-paths ["lib/argumentParser.jar"]
   :dependencies [[org.clojure/clojure "1.8.0"][speclj "3.3.0"]]
   :plugins [[speclj "3.3.0"]]
   :test-paths ["spec"]
-  :main ^:skip-aot clojure-tic-tac-toe.core
+  :aot [clojure-tic-tac-toe.core]
+  :main clojure-tic-tac-toe.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})

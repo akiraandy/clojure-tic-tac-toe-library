@@ -14,3 +14,9 @@
 
 (defn full? [board]
   (empty? (available-spaces board)))
+
+(defn board-empty? [board]
+  (= (count board) (count (available-spaces board))))
+
+(defn middle-available? [board]
+  (is-empty? (nth board 4)))
