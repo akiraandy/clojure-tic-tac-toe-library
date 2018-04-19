@@ -40,4 +40,7 @@
     (it "tell who won if there is a winner"
       (should= "X won! Congratulations!" (end-game board-with-winner)))
     (it "inform the users of a tie"
-      (should= "Game over! It's a tie!" (end-game tie-board)))))
+      (should= "Game over! It's a tie!" (end-game tie-board))))
+  (describe "help"
+    (it "informs the user of possible game types"
+      (should= "Did not recognize game type. Please enter --type followed by a valid game type.\nValid game types: hvh, hvc" (help)))))
