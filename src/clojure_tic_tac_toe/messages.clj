@@ -36,3 +36,6 @@
 (defn clear-screen []
   (do (print(str (char 27) "[2J"))
   (str (char 27) "[2J")))
+
+(defn help []
+  (str "Did not recognize game type. Please enter --type followed by a valid game type.\nValid game types: hvh, hvc"))
