@@ -20,6 +20,6 @@
     (let [game-type (keyword (get (.parse ag (into-array args)) "gameType"))]
       (cond
         (= :hvh game-type) (play-game {:player1 {:player-type :human} :player2 {:player-type :human} :board empty-board})
-        (= :hvc game-type) (play-game {:player1 {:player-type :human} :player2 {:player-type :computer} :board empty-board})
+        (= (or(:hvc game-type)(:cvh game-type))) (play-game {:player1 {:player-type :human} :player2 {:player-type :computer} :board empty-board})
         :else
         (console-ui/print-message(messages/help))))))
