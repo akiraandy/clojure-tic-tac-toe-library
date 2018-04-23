@@ -18,8 +18,6 @@
   (recur (turn game-data))))
 
 (defn play-game [game-data]
-  (for [x (range 10)]
-  (console/print-message(messages/clear-screen)))
   (let [end-state (game-loop game-data)]
     (console/print-message(messages/clear-screen))
     (console/print-message(messages/display-board end-state))
