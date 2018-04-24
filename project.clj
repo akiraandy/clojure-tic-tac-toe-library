@@ -7,7 +7,6 @@
   :dependencies [[org.clojure/clojure "1.8.0"][speclj "3.3.0"]]
   :plugins [[speclj "3.3.0"]]
   :test-paths ["spec"]
-  :aot [clojure-tic-tac-toe.core]
   :main clojure-tic-tac-toe.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})

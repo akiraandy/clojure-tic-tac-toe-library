@@ -1,8 +1,5 @@
 (ns clojure-tic-tac-toe.board)
 
-(defn get-board [board-vector] 
-  board-vector)
-
 (defn- is-empty? [space]
   (number? space))
 
@@ -10,7 +7,9 @@
   (filter #(is-empty? %) board))
 
 (defn fill-board [index board marker]
-  (assoc board index marker))
+  (if (not(nil? index))
+    (assoc board index marker)
+    board))
 
 (defn full? [board]
   (empty? (available-spaces board)))

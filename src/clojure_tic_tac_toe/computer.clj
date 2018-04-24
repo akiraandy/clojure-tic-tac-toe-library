@@ -11,9 +11,7 @@
 
 (defn- take-random-spot [board] 
   (if (not(empty?(board/available-spaces board)))
-    (rand-nth (board/available-spaces board))
-    (throw (Exception. "No available spaces to move"))
-    ))
+    (rand-nth (board/available-spaces board))))
 
 (defn winning-move [board current-player] 
   (first(filter (fn [board-state] (not(nil? board-state))) 
