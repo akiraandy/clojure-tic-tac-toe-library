@@ -6,25 +6,15 @@
             [clojure-tic-tac-toe.move-validation :refer [valid-move?]]
             [clojure-tic-tac-toe.board :as board]))
 
-(defn- invalid-move [input] 
-  (console/print-message(messages/invalid-input))
-  (console/get-user-input))
+(defn- validate-move [input board]
+ (if (valid-move? board input)
+   input))
 
-(defn- valid-move-loop [input board]
- (if (and(is-number? input) (valid-move? board (Integer/parseInt input))) 
-   input
-   (recur(invalid-move input) board)))
-
-(defn- select-space[board current-player]
-  (console/print-message(messages/clear-screen))
-  (console/print-message(messages/display-board board))
-  (console/print-message(messages/turn-prompt current-player))
+(defn- select-space[input board]
   (->
-    (console/get-user-input)
-    (valid-move-loop board)
-    (read-string)))
+    (validate-move input board)))
 
 (defmethod play-turn :human [game]
   (->
-    (select-space (:board game) (:current-player game))
+    (select-space (:input game) (:board game))
     (board/fill-board (:board game) (:current-player game))))

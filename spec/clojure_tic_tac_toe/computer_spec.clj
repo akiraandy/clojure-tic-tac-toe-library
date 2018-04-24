@@ -74,5 +74,5 @@
       (should= [:x 1 2 3 :o 5 6 7 8] (play-turn {:player-type :computer :board take-middle-board :current-player :o :opponent-player :x})))
     (it "should take random spot if other conditions not met"
       (should= 5 (count (board/available-spaces (play-turn {:player-type :computer :board take-random-board :current-player :o :opponent-player :x})))))
-    (it "should throw error if there are no moves"
-        (should-throw (play-turn {:player-type :computer :board full-board :current-player :o :opponent-player :x}))))) 
+    (it "should return the same board if there are no valid moves"
+        (should= full-board (play-turn {:player-type :computer :board full-board :current-player :o :opponent-player :x}))))) 

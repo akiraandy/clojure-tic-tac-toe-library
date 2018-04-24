@@ -8,17 +8,23 @@
    0 1 2
    3 4 5
    6 7 8
-  ]
-)
+  ])
+
+(def played-board
+  [
+   0 :x 2
+   :o 4 5
+   6 7 8
+   ])
 
 (describe "human"
   (describe "play-turn"
-    (around [it]
-      (with-out-str (it)))
     (it "should return a board with a new marker on it"
       (should= [
                 :x 1 2
                 3 4 5
                 6 7 8
-               ] (with-in-str "0"
-                   (play-turn {:player-type :human :board empty-board :current-player :x}))))))
+               ] 
+                   (play-turn {:player-type :human :board empty-board :input 0 :current-player :x})))
+      (it "should return the same board if invalid move made"
+        (should= [0 :x 2 :o 4 5 6 7 8] (play-turn {:player-type :human :board played-board :input 3 :current-player :x})))))
