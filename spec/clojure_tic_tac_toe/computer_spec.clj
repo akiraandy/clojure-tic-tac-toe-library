@@ -1,6 +1,5 @@
 (ns clojure-tic-tac-toe.computer_spec 
   (:require [speclj.core :refer :all]
-            [clojure-tic-tac-toe.player :refer [play-turn]]
             [clojure-tic-tac-toe.board :as board]
             [clojure-tic-tac-toe.computer :refer :all]))
 
