@@ -1,6 +1,8 @@
 (ns clojure-tic-tac-toe.computer
-  (:require [clojure-tic-tac-toe.board :as board]
-            [clojure-tic-tac-toe.rules :as rules]))
+  (:require 
+    [clojure-tic-tac-toe.player :refer [play-turn]]
+    [clojure-tic-tac-toe.board :as board]
+    [clojure-tic-tac-toe.rules :as rules]))
 
 (defn- choose-corner []
   (rand-nth [0 2 6 8]))
@@ -27,7 +29,7 @@
   (board/middle-available? board) (take-middle)
   :else (take-random-spot board))) 
 
-(defn play-turn-computer [game]
+(defmethod play-turn false [game]
   (-> 
     (select-space (:board game) (:current-player game) (:opponent-player game))
     (board/fill-board (:board game) (:current-player game))))
