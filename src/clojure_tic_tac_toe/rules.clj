@@ -22,7 +22,7 @@
 
 (defn get-winner [board]
   (let [winner (first (first (sort-by count (combos board))))]
-    (if (not (number? winner))
+    (if (winner? board)
       winner)))
 
 (defn game-over? [board]
